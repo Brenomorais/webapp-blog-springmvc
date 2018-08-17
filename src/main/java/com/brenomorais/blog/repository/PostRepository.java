@@ -8,6 +8,9 @@ import com.brenomorais.blog.model.Post;
 @Repository
 public interface PostRepository  extends JpaRepository<Post, Long> {
 
+	//Inteface deve estender a clase JpaRepository e declarar nos parametros
+	// a entidade Post e o tipo da chave primaria.
+	
 	Post findOne(Long id);
 
 }
