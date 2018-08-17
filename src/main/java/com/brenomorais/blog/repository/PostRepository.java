@@ -8,4 +8,6 @@ import com.brenomorais.blog.model.Post;
 @Repository
 public interface PostRepository  extends JpaRepository<Post, Long> {
 
+	Post findOne(Long id);
+
 }
