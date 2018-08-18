@@ -9,52 +9,59 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
 </head>
 <body>
-
-<div class="panel panel-default">
 	
-	<div class="panel-heading">
-		<h1>Blog</h1>
-		<strong style="color: #87CEEB">Blog of notes folks</strong>
+<nav class="navbar navbar-default" style="background-color: #e3f2fd;">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Blog of Notes</a>
+		</div>	
+		<ul class="nav navbar-nav">
+	      <li><a th:href="@{/add/}">Adicionar</a></li>
+		</ul>
 	</div>
+</nav>
+
+<div class="container">
+	<div class="panel panel-info">	
 	
-	<div class="panel-body">
-	
-		<div class="panel-footer">
-			<a class="btn btn-sm btn-success" th:href="@{/add/}">Adicionar</a>
+		<div class="panel-heading">
+			<h3>Lista de Post Publicados</h3>
 		</div>
 		
-		<br/>
-	
-		<div class="table-responsive">
-			
-			<table class="table table-sm table-striped table-houver table-bordered">
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>Autor</th>
-						<th>Título</th>
-						<th>Date Publicação</th>
-						<th>Ações</th>
-					</tr>
-				</thead>	
-				<tbody>
-					<tr th:each="post : ${posts}">
-						<td th:text="${post.id}"></td>
-						<td th:text="${post.autor}"></td>
-						<td th:text="${post.titulo}"></td>
-						<td th:text="${#dates.format(post.data, 'dd/MM/yyyy')}"></td>
-						<td>
-							<div>
-								<a class="btn btn-sm btn-primary" th:href="@{/edit/{id}(id=${post.id})}">Editar</a> 
-								<a class="delete btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${post.id})}">Excluir</a>
-							</div>
-						</td>
-					</tr>
-				</tbody>	
-					
-			</table>			
-		</div>
-	</div>		
+		<div class="panel-body">			
+		
+			<div class="table-responsive">
+				
+				<table class="table table-sm table-striped table-houver table-bordered">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Autor</th>
+							<th>Título</th>
+							<th  style="text-align: center">Date Publicação</th>
+							<th  style="text-align: center">Ações</th>
+						</tr>
+					</thead>	
+					<tbody>
+						<tr th:each="post : ${posts}">
+							<td th:text="${post.id}"></td>
+							<td th:text="${post.autor}"></td>
+							<td th:text="${post.titulo}"></td>
+							<td style="text-align: center" th:text="${#dates.format(post.data, 'dd/MM/yyyy')}"></td>
+							<td  style="text-align: center">
+								<div>
+									<a class="btn btn-sm btn-success" th:href="@{/view/{id}(id=${post.id})}">Visualizar</a>							
+									<a class="btn btn-sm btn-primary" th:href="@{/edit/{id}(id=${post.id})}">Editar</a> 
+									<a class="btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${post.id})}">Excluir</a>
+								</div>
+							</td>
+						</tr>
+					</tbody>	
+						
+				</table>			
+			</div>
+		</div>		
+	</div>
 </div>	
 </body>
 </html>

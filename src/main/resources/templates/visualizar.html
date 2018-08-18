@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Blog</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+</head>
+<body>
+
+<nav class="navbar navbar-default" style="background-color: #e3f2fd;">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" th:href="@{/}">Blog of Notes</a>
+		</div>	
+		<ul class="nav navbar-nav">
+	      <li><a th:href="@{/add/}">Adicionar</a></li>
+		</ul>
+	</div>
+</nav>
+
+<div class="container">
+	<div class="panel panel-info">
+		
+		<div class="panel-heading">
+	      	<h1><strong th:text="${post.titulo}"></strong></h1>
+	      	<sub>Autor: </sub><sub th:text="${post.autor}"></sub><sub> - </sub>    	
+	      	<sub>Publicação: </sub><sub th:text="${#dates.format(post.data, 'dd/MM/yyyy')}"></sub>
+		</div>
+	      
+	      <div class="panel-body">      
+	      	<article style="text-align:justify">
+	      		<p th:text="${post.texto}"></p>
+	     	 </article>      
+	      </div>       
+	</div>
+	<a class="btn btn-sm btn-default" th:href="@{/}">Voltar ao menu</a>
+</div>
+	
+</body>
+</html>

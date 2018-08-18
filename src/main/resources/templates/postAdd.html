@@ -9,10 +9,23 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
 </head>
 <body>
-	<div class="panel panel-default">
+
+<nav class="navbar navbar-default" style="background-color: #e3f2fd;">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" th:href="@{/}">Blog of Notes</a>
+		</div>	
+		<ul class="nav navbar-nav">
+	      <li><a th:href="@{/add/}">Adicionar</a></li>
+		</ul>
+	</div>
+</nav>
+
+<div class="container">
+	<div class="panel panel-info">
 		
 		<div class="panel-heading">
-			<h1>Cadastro de Posts</h1>
+			Cadastro de Posts
 		</div>
 		
 		<div class="panel-body">
@@ -28,17 +41,18 @@
 						</div> 					
 						<div class="form-group row">
 						    <div class="col-md-1">
+						     	<label>Código</label>
 						        <input type="text" class="form-control input-sm" id="id" th:field="*{id}" readOnly="readonly"/>
 						    </div>
 						 </div>
 						<div class="form-group row">                                                          
-							<div class="col-md-4" th:classappend="${#fields.hasErrors('autor')}? 'has-error'">
+							<div class="col-md-12" th:classappend="${#fields.hasErrors('autor')}? 'has-error'">
 							    <label>Autor</label>
 							    <input type="text" class="form-control input-sm" th:field="*{autor}" autofocus="autofocus" placeholder="Informe o autor" maxlength="50"/>
 							</div>
 						</div>
 						<div class="form-group row">
-							<div class="col-md-4" th:classappend="${#fields.hasErrors('titulo')}? 'has-error'">
+							<div class="col-md-12" th:classappend="${#fields.hasErrors('titulo')}? 'has-error'">
 								<label>T&iacute;tulo</label> 
 								<input type="text" class="form-control input-sm" th:field="*{titulo}" maxlength="150" placeholder="Informe o título"/>
 							</div>
@@ -50,19 +64,20 @@
 							</div>
 						</div>						
 						<div class="form-group row">
-							<div class="col-md-4" th:classappend="${#fields.hasErrors('texto')}? 'has-error'">
+							<div class="col-md-12" th:classappend="${#fields.hasErrors('texto')}? 'has-error'">
 								<label>Texto</label>
-								<textarea class="form-control input-sm" th:field="*{texto}" cols="5" rows="5" placeholder="Informe o texto"></textarea>
+								<textarea class="form-control input-sm" th:field="*{texto}" rows="10" placeholder="Informe o texto"></textarea>
 							</div>
 						</div>						
 					</fieldset>
 				</div>
 				<div class="form-group row">
 					<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
-					<a th:href="@{/}" class="btn btn-sm btn-default">Cancelar</a>
+					<a th:href="@{/}" class="btn btn-sm btn-danger">Cancelar</a>					
 				</div>
 			</form>
 		</div>
 	</div>
+</div>
 </body>
 </html>

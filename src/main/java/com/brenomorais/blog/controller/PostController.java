@@ -65,5 +65,16 @@ public class PostController {
 		
 		return findAll();
 	}	
+	
+	//Direciona para pagina de visualização do post
+	@GetMapping("/view/{id}")
+	public ModelAndView view(@PathVariable("id") Long id) {	
+		
+		ModelAndView mv = new ModelAndView("/visualizar");
+		mv.addObject("post", service.findOne(id));
+		
+		return mv;	
+		
+	}
 
 }

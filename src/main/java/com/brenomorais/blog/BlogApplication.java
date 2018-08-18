@@ -9,6 +9,8 @@ public class BlogApplication {
 	//Iinicializa a aplicação
 	public static void main(String[] args) {
 		SpringApplication.run(BlogApplication.class, args);
-		System.out.println("App Started..");
+		System.out.println("==============================");
+		System.out.println(" :: Spring Boot >> APP Blog ::");
+		System.out.println("==============================");
 	}
 }
