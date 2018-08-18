@@ -18,7 +18,7 @@ public class PostService {
 		return repository.findAll();
 	}
 	
-	public Post findOne(Long id) {
+	public Post findOne(Long id) {				
 		return repository.findOne(id);
 	}
 	
